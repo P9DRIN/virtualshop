@@ -1,7 +1,11 @@
+import GlobalStyles from './GlobalStyles'
+import Layout from './components/Layout'
+
 function App() {
   return (
     <>
-      <h1>Iniciando Projeto</h1>
+      <Layout/>
+      <GlobalStyles/>
     </>
   )
 }
