@@ -9,5 +9,5 @@ export const Container = styled.div`
     margin-top: 15px;
     margin-left: 15px;
     margin-right: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 `

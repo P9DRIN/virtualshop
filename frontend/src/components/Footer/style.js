@@ -6,7 +6,7 @@ export const Container = styled.footer`
     align-items: center;
     width: 100%;
     height: 50px;
-
+    
 
     & strong{
         color: #314D66;

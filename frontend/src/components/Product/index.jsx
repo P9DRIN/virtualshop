@@ -6,7 +6,7 @@ export default function Product(){
         <>
             <Container>
                 <Image/>
-                <h3>300$</h3>
+                <h3>.</h3>
                 <LinkToCart>
                     <CartIcon/>
                 </LinkToCart>
