@@ -59,7 +59,7 @@ module.exports = {
 
     async delete(request, response){
         try{
-            await response.product.remove();
+            await response.product.deleteOne();
             return response.status(200).json({ message:'product deleted sucessfully' })
 
         }catch(err){
