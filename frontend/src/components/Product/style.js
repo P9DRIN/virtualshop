@@ -20,8 +20,12 @@ export const Container = styled.div`
     }
 `
 export const Image = styled.div`
-    background-color: #ccc;
     height: 280px;
+
+    & img{
+        max-height: 280px;
+        max-width: 100%;
+    }
 
 `
 

@@ -1,12 +1,14 @@
 
 import { Container, Image, LinkToCart, CartIcon } from './style.js'
 
-export default function Product(){
+export default function Product({ price, link }){
     return(
         <>
             <Container>
-                <Image/>
-                <h3>.</h3>
+                <Image>
+                    <img src={link} alt='teste'></img>
+                </Image>
+                <h3>{price}</h3>
                 <LinkToCart>
                     <CartIcon/>
                 </LinkToCart>
