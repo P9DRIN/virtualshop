@@ -1,10 +1,10 @@
-import GlobalStyles from './GlobalStyles'
-import Layout from './components/Layout'
+import GlobalStyles from './GlobalStyles';
+import RoutesApp from './routes/RoutesApp';
 
 function App() {
   return (
     <>
-      <Layout/>
+      <RoutesApp/>
       <GlobalStyles/>
     </>
   )

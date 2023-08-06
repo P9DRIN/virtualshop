@@ -21,10 +21,13 @@ export const Container = styled.div`
 `
 export const Image = styled.div`
     height: 280px;
+    display: flex;
+    justify-content: center;
 
     & img{
         max-height: 280px;
         max-width: 100%;
+        
     }
 
 `
