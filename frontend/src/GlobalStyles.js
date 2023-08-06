@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         font-family: 'Roboto Slab', serif;
         overflow: hidden;
+        text-decoration: none;
     }
     body{
         background-color: #efefef;

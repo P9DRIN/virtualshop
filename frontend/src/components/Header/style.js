@@ -12,6 +12,10 @@ export const Container = styled.header`
     align-items: center;
 
 
+    & Link{
+        text-decoration: none;
+    }
+
     & h2{
         color: #fff;
         display: flex;
