@@ -41,14 +41,21 @@ export const Container = styled.div`
         & a{
                 text-decoration: none;
                 color: #424242;
-                border: 2px solid #ededed;
-                background-color: #ededed;
+                border: 2px solid #d6d6d6;
+                background-color: #d6d6d6;
                 border-radius: 15px;
                 width: 155px;
                 display: flex;
                 justify-content: center;
                 gap: 4px;
         }
+        & a:hover{
+                background-color: rgb(214,214,214);
+                background: linear-gradient(4deg, rgba(214,214,214,1) 0%, rgba(237,237,237,1) 100%);
+                border-color: rgb(214,214,214);
+                transition: 2s ease;
+        }
+        
         & b{
                 color: #242424;
         }
