@@ -6,9 +6,11 @@
         Express
         Uuid
         Mongoose
+        
 #### MongoDB
 
 #### React
         ReactIcons
         StyledComponents
-        
+        Axios
+        React Router Dom
