@@ -24,10 +24,10 @@ const RoutesApp = () => {
                     <Route path='*' element={<ErrorPage/>}/>                    
                     <Route exact path='/' element={<Layout/>} />
                     
-                    <Route path='/login' element={<SigninPage/>}/>
-                    <Route path='/register' element={<SignupPage/>}/>
-                    <Route path='/cart' element={<CartPage/>}/>
-                    <Route path='/profile' element={<AccountPage/>}/>
+                    <Route exact path='/login' element={<SigninPage/>}/>
+                    <Route exact path='/register' element={<SignupPage/>}/>
+                    <Route exact path='/cart' element={<Private Item={CartPage}/>}/>
+                    <Route exact path='/profile' element={<Private Item={AccountPage}/>}/>
 
                 </Routes>
             </Fragment>
