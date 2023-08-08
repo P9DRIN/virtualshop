@@ -52,6 +52,7 @@ export const Form = styled.form`
     }
     & i{
         text-decoration: none;
-        font-size: 12px;
+        font-size: 10px;
+        width: 160px;
     }
 `
