@@ -19,13 +19,13 @@ routes.delete('/product/:id', ProductMiddleware.validateId, ProductController.de
 
 // Accounts ***
 
-routes.get('/accounts', AccountController.index);
+routes.get('/account', AccountController.index);
 
-routes.post("/accounts", AccountController.store);
+routes.post("/account", AccountController.store);
 
-routes.put('/accounts/:id', AccountMiddleware.validateId, AccountController.update)
+routes.put('/account/:id', AccountMiddleware.validateId, AccountController.update)
 
-routes.delete('/accounts/:id', AccountMiddleware.validateId, AccountController.delete)
+routes.delete('/account/:id', AccountMiddleware.validateId, AccountController.delete)
 
 
 module.exports = routes;
