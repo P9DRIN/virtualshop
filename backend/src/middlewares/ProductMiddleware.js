@@ -1,9 +1,8 @@
-const { validate: isUuid } = require('uuid');
+import { validate as isUuid } from 'uuid'
+import Product from '../models/products.js'
 
-const Product = require('../models/products');
 
-module.exports = {
-    async validateId(request, response, next){
+    async function validateId(request, response, next){
         const { id } = request.params;
 
         if(!isUuid(id)){
@@ -21,4 +20,7 @@ module.exports = {
 
         next();
     }
-}
+
+    export {
+        validateId,
+    }

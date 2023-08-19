@@ -1,12 +1,13 @@
 import GlobalStyles from './GlobalStyles';
-import RoutesApp from './routes/RoutesApp';
 import { AuthProvider } from './contexts/auth';
+import RoutesApp from './routes/RoutesApp';
+
 function App() {
   return (
     <>
       <AuthProvider>
-      <RoutesApp/>
-      <GlobalStyles/>
+        <RoutesApp/>
+        <GlobalStyles/>
       </AuthProvider>
     </>
   )

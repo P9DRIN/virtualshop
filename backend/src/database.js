@@ -1,14 +1,16 @@
-const mongoose = require('mongoose')
+import mongoose from "mongoose";
+import * as dotenv from 'dotenv'
 
-function connectToDataBase(){
-    mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true, useUnifiedTopology: true,
-    })
+dotenv.config({ path: './.env'})
 
-const db = mongoose.connection;
-    db.on("error", (error) => {
-        console.log(error)
-});  db.once("open", () => console.log("✨ Sucessfully connected to the database.") )
+const connect = async () => {
+    try {
+        mongoose.set("strictQuery", true);
+        mongoose.connect(process.env.DATABASE_URL);
+        console.log("Banco conectado com sucesso!");
+    } catch (error) {
+        console.log("Error: ", e.message);
+    }
 }
 
-module.exports = connectToDataBase;
+export default {connect};

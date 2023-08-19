@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 export const Layout = styled.div`
     display: flex;
     height: 80vh;
-    border: 2px solid yellow;
+    border: none;
     align-items: center;
     justify-content: center;
 `
@@ -50,8 +50,11 @@ export const Form = styled.form`
     & i{
         text-decoration: none;
         font-size: 10px;
-        width: 90px;
+        width: 170px;
+        display: flex;
+        gap: 5px;
         align-items: center;
+        justify-content: center;
         
     }
 `

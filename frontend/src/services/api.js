@@ -4,4 +4,11 @@ const api = axios.create({
     baseURL: "http://localhost:3333"
  })
 
- export default api;
+ const createSession = async(email, password) => {
+   return api.post('/sessions', { email, password })
+ }
+
+ export { 
+   api,
+   createSession
+  } 

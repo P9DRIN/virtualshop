@@ -1,11 +1,10 @@
-const express = require('express')
-const {v4: uuid} = require('uuid');
-const Account = require('../models/accounts');
+import express from 'express'
+import { v4 as uuid } from 'uuid'
+import Account from '../models/accounts.js'
+import { createPasswordHash } from '../services/auth.js';
 
 
-
-module.exports = { 
-    async index(request, response){
+    async function indexing(request, response){
         try{
             const account = await Account.find();
             return response.status(200).json({ account })
@@ -13,19 +12,21 @@ module.exports = {
         }catch(err){
             response.status(500).json({ error: err.message })
         }
-    },
+    }
 
-    async store(request, response){
+    async function storing(request, response){
         const { email, password } = request.body;
-        
+
         if( !email ) {
             return response.status(400).json({ error: 'Missin email' })
          }
+        
+        const encryptedPassword = await createPasswordHash(password)
 
          const account = new Account({
             _id: uuid(),
             email,
-            password,
+            password: encryptedPassword,
          })
 
          try{
@@ -35,16 +36,18 @@ module.exports = {
          }catch(err){
             response.status(500).json({ error: err.message });
          }
-    },
-    async update(request, response){
+    }
+    async function updating(request, response){
         const { email, password } = request.body;
 
-        if(!email && !password) {
+        if(!email || !password) {
             return response.status(400).json({ error: 'You must inform a email or a password' });
         }
 
+        const updatePasswordHash = await createPasswordHash(password);
+
         if(email) response.account.email = email;
-        if(password) response.account.password = password;
+        if(password) response.account.password = updatePasswordHash;
         
         try{
             await response.account.save();
@@ -53,9 +56,9 @@ module.exports = {
             response.status(500).json({ error: err.message })
         }
 
-    },
+    }
 
-    async delete(request, response){
+    async function removing(request, response){
         try{
             await response.account.deleteOne();
             return response.status(200).json({ message:'Account deleted sucessfully' })
@@ -64,4 +67,11 @@ module.exports = {
             return response.status(500).json({ error: err.message })
         }
     }               
-};
+
+
+    export {
+        indexing,
+        storing,
+        updating,
+        removing,
+    }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Product from "../Product";
 import { Container } from './style.js'
-import api from "../../services/api";
+import { api }  from "../../services/api";
 
 export default function Products(){
     const [products, setProduct] = useState([]);
@@ -12,7 +12,7 @@ export default function Products(){
 
     }) //eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
-        console.log(products)
+        
 
     return(
         <>

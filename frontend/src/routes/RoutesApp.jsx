@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Fragment, useContext } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import Layout from '../Pages/Layout';
 import ErrorPage from './error'
@@ -8,16 +8,25 @@ import SignupPage from '../Pages/Signup';
 import CartPage from '../Pages/Cart';
 import AccountPage from '../Pages/Account';
 
-const Private = ({ Item }) => {
-    const signed = false;
-    
-    return signed > 0 ? <Item/> : <SigninPage/>;
+import { AuthContext, AuthProvider } from '../contexts/auth';
+
+
+const Private = ({ children }) => {
+    const { Authenticated, loading } = useContext(AuthContext);
+
+    if(loading) {
+        return <div className='loading'>Carregando...</div>
+    }
+
+    if(!Authenticated){
+        return <Navigate to='/login'/>
+    }
+    return children;
 }
 
 
 const RoutesApp = () => {
     return(
-        <Router>
             <Fragment>
                 <Routes>
 
@@ -26,12 +35,11 @@ const RoutesApp = () => {
                     
                     <Route exact path='/login' element={<SigninPage/>}/>
                     <Route exact path='/register' element={<SignupPage/>}/>
-                    <Route exact path='/cart' element={<Private Item={CartPage}/>}/>
-                    <Route exact path='/profile' element={<Private Item={AccountPage}/>}/>
+                    <Route exact path='/cart' element={<Private><CartPage/></Private>}/>
+                    <Route exact path='/profile' element={<Private><AccountPage/></Private>}/>
 
                 </Routes>
             </Fragment>
-        </Router>
     )
 }
 

@@ -1,31 +1,39 @@
-const express = require('express');
+import express from 'express'
+import { index, store, remove, update } from './controllers/ProductController.js';
+import { validateId } from './middlewares/ProductMiddleware.js'
+import { indexing, storing, updating, removing } from './controllers/AccountController.js';
+import { validatingId } from './middlewares/AccountMiddleware.js';
+import { authMiddleware } from './middlewares/AuthMiddleware.js';
+import SessionsController from './controllers/SessionsController.js';
+
 const routes = express.Router();
-const ProductController = require('./controllers/ProductController');
-const ProductMiddleware = require('./middlewares/ProductMiddleware');
-const AccountController = require('./controllers/AccountController');
-const AccountMiddleware = require('./middlewares/AccountMiddleware');
+
+routes.get('/', (request, response) => response.send('teste'))
+
+routes.post('/sessions', SessionsController.create)
+
+routes.use('/account', authMiddleware)
 
 // Products ***
 
-routes.get('/', (request, response) => response.send('teste'));
+routes.get('/product', index);
 
-routes.get('/product', ProductController.index);
+routes.post("/product", store);
 
-routes.post("/product", ProductController.store);
+routes.put('/product/:id', validateId, update)
 
-routes.put('/product/:id', ProductMiddleware.validateId, ProductController.update)
-
-routes.delete('/product/:id', ProductMiddleware.validateId, ProductController.delete)
+routes.delete('/product/:id', validateId, remove)
 
 // Accounts ***
 
-routes.get('/account', AccountController.index);
 
-routes.post("/account", AccountController.store);
+routes.get('/account', indexing);
 
-routes.put('/account/:id', AccountMiddleware.validateId, AccountController.update)
+routes.post("/account", storing);
 
-routes.delete('/account/:id', AccountMiddleware.validateId, AccountController.delete)
+routes.put('/account/:id', validatingId, updating)
+
+routes.delete('/account/:id', validatingId, removing)
 
 
-module.exports = routes;
+export default routes;

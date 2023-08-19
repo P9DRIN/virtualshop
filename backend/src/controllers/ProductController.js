@@ -1,11 +1,9 @@
-const express = require('express')
-const {v4: uuid} = require('uuid');
-const Products = require('../models/products');
+import express from 'express'
+import Products from '../models/products.js'
+import { v4 as uuid } from 'uuid'
 
 
-
-module.exports = { 
-    async index(request, response){
+    async function index(request, response){
         try{
             const products = await Products.find();
             return response.status(200).json({ products })
@@ -13,9 +11,9 @@ module.exports = {
         }catch(err){
             response.status(500).json({ error: err.message })
         }
-    },
+    }
 
-    async store(request, response){
+    async function store(request, response){
         const { name, price, photo } = request.body;
         
         if( !name ) {
@@ -36,8 +34,8 @@ module.exports = {
          }catch(err){
             response.status(500).json({ error: err.message });
          }
-    },
-    async update(request, response){
+    }
+    async function update(request, response){
         const { name, price, photo } = request.body;
 
         if(!name && !price && !photo) {
@@ -55,9 +53,9 @@ module.exports = {
             response.status(500).json({ error: err.message })
         }
 
-    },
+    }
 
-    async delete(request, response){
+    async function remove(request, response){
         try{
             await response.product.deleteOne();
             return response.status(200).json({ message:'product deleted sucessfully' })
@@ -66,4 +64,10 @@ module.exports = {
             return response.status(500).json({ error: err.message })
         }
     }               
-};
+
+    export {
+        index,
+        store, 
+        update, 
+        remove,
+    }

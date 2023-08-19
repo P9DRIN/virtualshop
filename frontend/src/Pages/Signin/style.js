@@ -3,7 +3,6 @@ import { styled } from 'styled-components'
 export const Layout = styled.div`
     display: flex;
     height: 80vh;
-    border: 2px solid yellow;
     align-items: center;
     justify-content: center;
 
@@ -54,5 +53,8 @@ export const Form = styled.form`
         text-decoration: none;
         font-size: 10px;
         width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 `
