@@ -33,4 +33,4 @@
 
 
 ##### npm run dev to execute. dont forget to link the db on ".env" archive. Follow the syntax from ".env.example";
-##### npm run dev para executar aplicação. não esquecete de conectar o banco de dados no arquivo ".env". Siga a sintaxe do ".env.example";
+##### npm run dev para executar aplicação. não esquecer de conectar o banco de dados no arquivo ".env". Siga a sintaxe do ".env.example";
