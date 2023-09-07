@@ -12,7 +12,23 @@ const accountsSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: false,
+        required: true,
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+    street: {
+        type: String,
+        required: true,
+    },
+    housenumber: {
+        type: String,
+        required: true,
+    },
+    zipcode: {
+        type: String,
+        required: true,
     },
     
 })

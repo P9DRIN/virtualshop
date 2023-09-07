@@ -1,14 +1,17 @@
 import axios from 'axios';
 
-const api = axios.create({ 
+export const api = axios.create({ 
     baseURL: "http://localhost:3333"
  })
 
- const createSession = async(email, password) => {
+ export const createSession = async(email, password) => {
    return api.post('/sessions', { email, password })
  }
 
- export { 
-   api,
-   createSession
-  } 
+ export const getUsers = async() =>{
+  return api.get('/account');
+ }
+
+
+
+

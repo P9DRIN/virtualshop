@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         font-family: 'Roboto Slab', serif;
-        overflow: hidden;
+        overflow: auto;
         text-decoration: none;
     }
     body{

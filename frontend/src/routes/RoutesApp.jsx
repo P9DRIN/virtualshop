@@ -9,6 +9,7 @@ import CartPage from '../Pages/Cart';
 import AccountPage from '../Pages/Account';
 
 import { AuthContext, AuthProvider } from '../contexts/auth';
+import Payment from '../Pages/Payment';
 
 
 const Private = ({ children }) => {
@@ -32,11 +33,11 @@ const RoutesApp = () => {
 
                     <Route path='*' element={<ErrorPage/>}/>                    
                     <Route exact path='/' element={<Layout/>} />
-                    
                     <Route exact path='/login' element={<SigninPage/>}/>
                     <Route exact path='/register' element={<SignupPage/>}/>
                     <Route exact path='/cart' element={<Private><CartPage/></Private>}/>
                     <Route exact path='/profile' element={<Private><AccountPage/></Private>}/>
+                    <Route exact path="/payment" element={<Private><Payment/></Private>}/>
 
                 </Routes>
             </Fragment>

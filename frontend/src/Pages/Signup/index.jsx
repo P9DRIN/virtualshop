@@ -11,12 +11,14 @@ const SignupPage = () => {
     
         const { 
             handleSignup, 
-            email,
             setEmail,
-            password, 
             setPassword,
             error,
-            setError  
+            setError,
+            setStreet,
+            setHouseNumber,
+            setZipcode,
+            setName,
         } = useContext(AuthContext);
     
         function emailHandler(e){
@@ -24,6 +26,18 @@ const SignupPage = () => {
         }
         function passwordHandler(e){
             setPassword(e.target.value)
+        }
+        function streetHandler(e){
+            setStreet(e.target.value)
+        }
+        function numberHandler(e){
+            setHouseNumber(e.target.value)
+        }
+        function zipcodeHandler(e){
+            setZipcode(e.target.value)
+        }
+        function nameHandler(e){
+            setName(e.target.value)
         }
 
 
@@ -35,6 +49,10 @@ const SignupPage = () => {
                 <Form>
                     <input type='text' placeholder="E-mail" onChange={emailHandler} />
                     <input type="password" placeholder='Password' onChange={passwordHandler} />
+                    <input type='text' placeholder='Name' onChange={nameHandler}/>
+                    <input type='text' placeholder="Street" onChange={streetHandler}/>
+                    <input type='text' placeholder='Street number' onChange={numberHandler}/>
+                    <input type='text' placeholder='Zipcode' onChange={zipcodeHandler}/>
                     <button onClick={handleSignup} >Register</button>
                     <i>Back to <Link to='/login'> Login</Link> page</i>
                     <i>{error}</i>
@@ -43,5 +61,5 @@ const SignupPage = () => {
             <Footer/>
         </>
     )
-}
+    }
 export default  SignupPage;

@@ -7,7 +7,6 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 const SECRET = process.env.APP_SECRET
 
-
         async function authMiddleware(req, res, next){
 
         const authHeader = req.headers.authorization;

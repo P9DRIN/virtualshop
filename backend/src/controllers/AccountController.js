@@ -15,7 +15,7 @@ import { createPasswordHash } from '../services/auth.js';
     }
 
     async function storing(request, response){
-        const { email, password } = request.body;
+        const { email, password, name, street, housenumber, zipcode } = request.body;
 
         if( !email ) {
             return response.status(400).json({ error: 'Missin email' })
@@ -27,6 +27,10 @@ import { createPasswordHash } from '../services/auth.js';
             _id: uuid(),
             email,
             password: encryptedPassword,
+            name,
+            street,
+            housenumber,
+            zipcode,
          })
 
          try{
@@ -38,7 +42,7 @@ import { createPasswordHash } from '../services/auth.js';
          }
     }
     async function updating(request, response){
-        const { email, password } = request.body;
+        const { email, password, name, street, housenumber, zipcode } = request.body;
 
         if(!email || !password) {
             return response.status(400).json({ error: 'You must inform a email or a password' });
@@ -48,6 +52,10 @@ import { createPasswordHash } from '../services/auth.js';
 
         if(email) response.account.email = email;
         if(password) response.account.password = updatePasswordHash;
+        if(name) response.account.name = name;
+        if(street) response.account.street = street;
+        if(housenumber) response.account.housenumber = housenumber;
+        if(zipcode) response.account.zipcode = zipcode;
         
         try{
             await response.account.save();

@@ -8,12 +8,6 @@ import SessionsController from './controllers/SessionsController.js';
 
 const routes = express.Router();
 
-routes.get('/', (request, response) => response.send('teste'))
-
-routes.post('/sessions', SessionsController.create)
-
-routes.use('/account', authMiddleware)
-
 // Products ***
 
 routes.get('/product', index);
@@ -24,12 +18,19 @@ routes.put('/product/:id', validateId, update)
 
 routes.delete('/product/:id', validateId, remove)
 
-// Accounts ***
 
+
+// AuthMiddleware - Session Controler ***
+
+routes.post('/sessions', SessionsController.create)
+
+routes.use('/account', authMiddleware)
+
+// Accounts ***
 
 routes.get('/account', indexing);
 
-routes.post("/account", storing);
+routes.post('/account', storing)
 
 routes.put('/account/:id', validatingId, updating)
 

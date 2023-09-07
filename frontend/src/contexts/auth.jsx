@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { api, createSession } from '../services/api'
+import { api, createSession, } from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
 export const AuthContext = createContext({});
@@ -12,24 +12,26 @@ export const AuthProvider = ({ children }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(true);
+    const [street, setStreet] = useState('');
+    const [housenumber, setHouseNumber] = useState('');
+    const [zipcode, setZipcode] = useState('');
+    const [name, setName] = useState('')
     const navigate = useNavigate();
 
 
     useEffect(() => {
         const recoveredUser = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
 
-        if(recoveredUser){
+        if(recoveredUser && token){
             setUser(JSON.parse(recoveredUser));
+            api.defaults.headers.Authorization = `Bearer ${token}`;
         }
 
         setLoading(false)
 
      }, [])
     
-    function handleLogin(e){
-       e.preventDefault()
-       Login(email, password)
-    }
 
     const Login = async (email, password) => {
         
@@ -46,11 +48,28 @@ export const AuthProvider = ({ children }) => {
         setUser(loggedUser);
         navigate('/')
         
-
-       
+    }
     
+    const Register = (email, password, street, housenumber, zipcode, name) => {
+
+        const newUser = { email, password, name, street, housenumber, zipcode }
+        api.post('account', newUser)
+        console.log('ok')
+        
+    }
+
+    function handleLogin(e){
+        e.preventDefault()
+        Login(email, password)
+    }
+    
+    function handleSignup(e){
+        e.preventDefault()
+        Register(email, password, name, street, housenumber, zipcode)
 
     }
+
+
     const Logout = () => {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
@@ -62,21 +81,8 @@ export const AuthProvider = ({ children }) => {
         
     }
 
-    function handleSignup(e){
-        e.preventDefault()
-        
-
-            let newUser;
-            newUser = { email, password };
-            api.post("account", newUser).then(console.log("usuario cadastrado com sucesso"))
-            setError('Usuário cadastrado com sucesso...!')
-       
-    
-        
-    }
-
     return (
-        <AuthContext.Provider value = {{ handleLogin, Authenticated: !!user, loading, user, Login, Logout, handleSignup, email, setEmail, password, setPassword, setError, error }}>
+        <AuthContext.Provider value = {{ handleLogin, Authenticated: !!user, loading, Login, user, Logout, handleSignup, setEmail, email, setPassword, setError, error, setStreet, setHouseNumber, setZipcode, setName }}>
             {children}
         </AuthContext.Provider>
     )
