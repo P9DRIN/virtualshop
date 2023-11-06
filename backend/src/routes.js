@@ -18,8 +18,6 @@ routes.put('/product/:id', validateId, update)
 
 routes.delete('/product/:id', validateId, remove)
 
-
-
 // AuthMiddleware - Session Controler ***
 
 routes.post('/sessions', SessionsController.create)
@@ -28,9 +26,9 @@ routes.use('/account', authMiddleware)
 
 // Accounts ***
 
-routes.get('/account', indexing);
+routes.get('/accounts', indexing);
 
-routes.post('/account', storing)
+routes.post('/accounts', storing)
 
 routes.put('/account/:id', validatingId, updating)
 

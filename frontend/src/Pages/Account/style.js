@@ -1,97 +1,130 @@
 import styled from 'styled-components'
-import { SlLogout } from 'react-icons/sl'
+import { SlLogout, SlRefresh } from 'react-icons/sl'
 
 
 export const Container = styled.div`
-
+    height: 100vh;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
     flex-direction: column;
-    gap: 20px;
-
-& .teste{
-    width: 30px;
-    height: 55px;
+    justify-content: space-between;
+    align-items: center;
+    
+   & .btnOut{
     display: flex;
     align-items: center;
     justify-content: center;
-    border: none;
-    background-color: #314d66;
-    color: #bfbfbf;
-    transition: 1.25s ease-out;
+    font-size: 24px;
+    background: transparent;
     
-    :hover{
-        color: #ffffff;
-    }
-}
-`
-export const LogoutIcon = styled(SlLogout)`
-    display: flex;
-    justify-content: center;
-    font-size: 20px;
-    color: #ccc;
+    color: #111;
+    
+    border: none;
     cursor: pointer;
+   }
+   & .btnOut:hover{
+        color: rgba(0, 0, 0, 0.5);
+   }
+
+   
+`
+export const RefreshBox = styled.div`
+    width: 100%;
+    height:  8vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    & .refresh{
+    width: 4%;
+    height: 40px;
+    margin-right: 30px;
+    background: #314D66;
+    border: none;
+    
+   }
+   
+`
+export const Refresh = styled(SlRefresh)`
+    font-size: 26px;
+    color: white;
+    transition: 1s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+        color: #a9b7c2;
+        transform: rotate(0.6turn);
+    }
 `
 
-export const Layout = styled.main`
-    display: flex;
-    flex-direction: column;
-    margin-right: 5%;
-    padding: 40px 50px;
-
-    width: 90%;
-    height: 400px;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
-    border-bottom: 2px solid #ccc;
 
 
+export const LogOut = styled(SlLogout)`
+`
+
+
+export const ContentBox = styled.main`
+    height: 70vh;
+    width: 80%;
+    border-top: 1px solid rgba( 0, 0, 0, 0.2);
+    border-left: 1px solid rgba( 0, 0, 0, 0.2);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    
+    
+    
+    & .layout{
+        display: flex;
+        flex-direction: column;
+        margin-top: 5vh;
+        margin-left: 3vw;
+        color: #314D66;
+        font-weight: 400;
+        
+    }
     & .name{
-        font-size: 48px;
-        border-bottom: 3px solid #ccc;
-        padding-bottom: 5px;
+        font-size: 64px;
+        padding-bottom: 1vh;
     }
     & .form{
         display: flex;
-        flex-direction: column;        
-    }
-    
-
-
-    & .emailLayout{
-        display: flex;
         flex-direction: column;
         gap: 15px;
-        padding-bottom: 10px;
-        padding-top: 5px;
-        width: fit-content;
+    }
+    & .emailLayout{
+        width: 90%;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 3vh;
     }
     & .addressLayout{
-        display: flex;
-        gap: 15px;
-        flex-direction: column;
-        justify-content: space-between;
-        width: fit-content;
+        width: 90%;
+        padding-bottom: 8vh;
     }
     & .input{
+        width: 100%;
         outline: 0;
-        border: none;
-        background-color: #ccc;
+        background: transparent;
+        border: 1px solid #a5b6c4;
+    }
+    & .input:hover{
+        border: 1px solid #314D66;
+    }
+    & .input:focus{
+        border: 1px solid #314D66;
     }
 
     & .save{
-        align-items: center;
-        align-self: center;
-        justify-content: center;
-        width: 300px;
-        height: 25px;
-
-        outline: 0;
+        margin-left: 20vw;
+        height: 4vh;
+        width: 40vw;
         border: none;
-        border-radius: 5px;
-        background-color: #314d66;
-        color: #fff;
+        background: #314D66;
+        color: white;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
     }
-    
-  
+    & .save:hover{
+        background: #a5b6c4;
+        
+    }
 `
+

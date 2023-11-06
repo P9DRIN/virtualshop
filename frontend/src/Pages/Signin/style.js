@@ -20,6 +20,8 @@ export const Form = styled.form`
 
     background-color: #f5f3ed;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 15px;
 
     & input{
@@ -37,17 +39,17 @@ export const Form = styled.form`
     & button{
         width: 125px;
         height: 30px;
-        background: rgb(79,132,179);
-        background: linear-gradient(0deg, rgba(79,132,179,1) 0%, rgba(141,118,255,1) 100%);
+        background: #314D66;
         border-radius: 5px;
         border: none;
         color: #fff;
+        font-weight: 400;
         box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
         cursor: pointer;
 
     }
     & button:hover{
-
+        background: #5d778f;
     }
     & i{
         text-decoration: none;
@@ -57,4 +59,26 @@ export const Form = styled.form`
         align-items: center;
         justify-content: center;
     }
+
+   
 `
+
+    export const RegisterBox = styled.div`
+        display: flex;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+
+    & p{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 12px;
+
+    }
+        & .signup{
+        color: #314D66;
+    }
+    `

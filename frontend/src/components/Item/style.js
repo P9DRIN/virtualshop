@@ -11,10 +11,11 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
+    margin-bottom: 3%;
 
-    & .btn{
-        height: 30px;
-        width: 20px;
+    & .btnC{
+        height: 40px;
+        width: 50px;
         justify-content: center;
         align-items: center;
         display: flex;
@@ -25,7 +26,7 @@ export const Container = styled.div`
         color: #fff;
         margin-right: 5px;
     }
-    & .btn:hover{
+    & .btnC:hover{
         color: #314D66;
         background: #ff5770;
         transition: 0.3s ease-out;

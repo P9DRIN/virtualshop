@@ -47,6 +47,16 @@ export const LinkToCart = styled.a`
         background-color: #3CBC96;
         transition: 0.3s ease-out;
     }
+    & button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border-radius: 5px;
+        height: 36px;
+        width: 100%;
+        border: none;
+    }
 `
 
 export const CartIcon = styled(BsFillBagPlusFill)`

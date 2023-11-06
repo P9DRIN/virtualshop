@@ -15,17 +15,22 @@ export const Layout = styled.main`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-`
+    overflow: hidden;
 
-export const FinalPriceCont = styled.div`
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-self: flex-end;
-    gap: 25px;
-    margin: 5px 2px;
-
+    & .cartEmpty{
+        padding: 25%;
+        color: #314D66;
+    }
+    & .centralizer{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        gap: 25px;
+        margin-right: 15px;
+        
+        
+    }
     & .btn{
         height: 50px;
         width: 100px;
@@ -34,7 +39,10 @@ export const FinalPriceCont = styled.div`
         border: none;
         border-radius: 2px;
         color: #fff;
-        margin-right: 5px;
+        margin-right: 10px;
+        margin-bottom: 5px;
+        
+        
     }
     & .btn:hover{
         color: #000;
@@ -47,5 +55,4 @@ export const FinalPriceCont = styled.div`
         font-weight: 400;
         border-bottom: 1px solid #e6e6e6;
     }
-
 `

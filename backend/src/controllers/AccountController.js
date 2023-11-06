@@ -41,18 +41,16 @@ import { createPasswordHash } from '../services/auth.js';
             response.status(500).json({ error: err.message });
          }
     }
+
+    
     async function updating(request, response){
-        const { email, password, name, street, housenumber, zipcode } = request.body;
+         const { email, street, housenumber, zipcode } = request.body;
 
-        if(!email || !password) {
-            return response.status(400).json({ error: 'You must inform a email or a password' });
+        if(!email) {
+            return response.status(400).json({ error: 'You must inform a email' });
         }
-
-        const updatePasswordHash = await createPasswordHash(password);
-
-        if(email) response.account.email = email;
-        if(password) response.account.password = updatePasswordHash;
-        if(name) response.account.name = name;
+    
+        if(email) response.account.email = email; 
         if(street) response.account.street = street;
         if(housenumber) response.account.housenumber = housenumber;
         if(zipcode) response.account.zipcode = zipcode;

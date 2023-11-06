@@ -11,7 +11,6 @@ export const Container = styled.header`
     justify-content: space-between;
     align-items: center;
 
-
     & Link{
         text-decoration: none;
     }
@@ -65,4 +64,6 @@ export const UserIcon = styled(BiUserCircle)`
         color: #ffffff;
         
     }
+
+
 `;

@@ -1,18 +1,14 @@
-import { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from 'react-router-dom';
-import { Layout, Form } from './style.js';
+import { useContext, } from "react";
+import { Link } from 'react-router-dom';
+import { Layout, Form, RegisterBox } from './style.js';
 import { AuthContext } from "../../contexts/auth";
-import useAuth from "../../hooks/useAuth";
+
 import Header from "../../components/Header";
 import Footer from '../../components/Footer';
 
 const SigninPage = () => {    
     
     const {
-        Authenticated, 
-        Login,
-        email,
-        password,
         setEmail,
         setPassword,
         handleLogin,
@@ -31,10 +27,14 @@ const SigninPage = () => {
             <Header/>
             <Layout>
                 <Form>
-                    <input type='text' placeholder="E-mail" onChange={emailHandler}/>
-                    <input type="password" placeholder='Password' onChange={passwordHandler}/>
+                    <input type='text' placeholder="E-mail" onChange={emailHandler} autocomplete="username"
+             required/>
+                    <input type="password" placeholder='Password' onChange={passwordHandler} autocomplete="current-password" required/>
                     <button onClick={handleLogin}>LOGIN</button>
-                <i>Dont have an account?<Link to='/register'> Sign up!</Link></i>
+                <RegisterBox>
+                <div>Dont have an account?<Link to='/register'> <p className='signup'> Sign up! </p></Link></div>
+
+                </RegisterBox>
                 <i>{error}</i>
                 </Form>
 

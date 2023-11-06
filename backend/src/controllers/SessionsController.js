@@ -2,8 +2,6 @@ import jwt from 'jsonwebtoken'
 import Account from '../models/accounts.js'
 import * as dotenv from 'dotenv'
 import bcrypt from 'bcryptjs'
-import { v4 as uuid } from 'uuid'
-import { createPasswordHash } from '../services/auth.js'
 
 dotenv.config()
 
@@ -25,12 +23,16 @@ class SessionController{
             return res.status(401).json({ error: 'user or password invalid' })
         }
 
-        const { _id } = user;
+        const { _id, name, street, housenumber, zipcode } = user;
 
         return res.json({
             user: {
                _id,
-                email
+                email,
+                name,
+                street,
+                housenumber,
+                zipcode,
             },
             token: jwt.sign({ _id }, SECRET, { 
                 expiresIn: '3d',
